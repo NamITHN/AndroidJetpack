@@ -11,14 +11,10 @@ public class Note {
     private String description;
     private int priority;
 
-    public Note(int id, String title, String description, int priority) {
-        this.id = id;
+    public Note(String title, String description, int priority) {
         this.title = title;
         this.description = description;
         this.priority = priority;
-    }
-
-    public Note(String title1, String description1, int i) {
     }
 
     public int getId() {
