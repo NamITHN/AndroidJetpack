@@ -1,10 +1,15 @@
 package com.namnt.roomlivedatamodelapplication;
 
+import androidx.databinding.BaseObservable;
+import androidx.databinding.Bindable;
+import androidx.databinding.library.baseAdapters.BR;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+
+
 @Entity(tableName = "note_table")
-public class Note {
+public class Note extends BaseObservable {
     @PrimaryKey(autoGenerate = true)
     private int id;
     private String title;
@@ -25,12 +30,14 @@ public class Note {
         this.id = id;
     }
 
+    @Bindable
     public String getTitle() {
         return title;
     }
 
     public void setTitle(String title) {
         this.title = title;
+        notifyPropertyChanged(BR.title);
     }
 
     public String getDescription() {
